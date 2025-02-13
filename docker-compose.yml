@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - ./:/code
+    ports:
+      - "8000:8000"
+    environment:
+        # docker host dns 
+
+      - DB_HOST=host.docker.internal  # Docker will use this for DB connection
+
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    expose:
+      - 5432
+    environment:
+    # local env 
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123123
+      - POSTGRES_DB=pizza_delivery
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 10s
+      retries: 3
+      start_period: 30s
+      timeout: 5s
+
+volumes:
+  postgres_data:

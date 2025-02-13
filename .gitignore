@@ -1,0 +1,22 @@
+# Python-related files
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+.env/
+
+# OS-specific files
+Thumbs.db  # Windows
+
+# Log files
+*.log
+
+# Other temporary files
+*.bak
+*.swp
+
+# IDE-specific files
+.vscode/
+
+# .env file for environment variables (sensitive)
+.env

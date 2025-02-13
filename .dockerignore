@@ -1,0 +1,8 @@
+**pycache**/
+_.pyc
+_.pyo
+\*.pyd
+.env
+
+<!-- # Ignore Git repository files -->
+.git
