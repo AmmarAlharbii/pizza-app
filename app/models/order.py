@@ -2,6 +2,8 @@ from app.database.db import Base
 from sqlalchemy import Column, Integer, Text, Boolean, String, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy_utils.types import ChoiceType
+from sqlalchemy.ext.declarative import declarative_base
+
 # from app.models.user import User
 
 

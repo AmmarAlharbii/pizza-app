@@ -1,17 +1,16 @@
-from pydantic import BaseModel,Field
+from pydantic import BaseModel,Field,EmailStr
 from typing import  Optional
 
 class SignUpModel(BaseModel):
     id: int | None = Field(None, exclude=True)  # Use `exclude=True` to mark `id` as excluded in the body
     username :str = Field('iiMoro', max_length=25)
-    email :str = Field(max_length=100,pattern=r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",default="ammar@gmail.com")
+    email: EmailStr
     password : str 
     is_staff: Optional [bool] = False
     is_active : Optional [bool]
     
     
     class Config: 
-        
         from_attributes = True
         json_schema_extra = {
             'example':{
@@ -25,7 +24,7 @@ class SignUpModel(BaseModel):
         
 class SignUpResponse(BaseModel):
     username :str
-    email : str
+    email: EmailStr
     is_staff: Optional [bool]
     is_active : Optional [bool]        
     class Config: 

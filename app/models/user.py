@@ -1,7 +1,8 @@
-from typing import TYPE_CHECKING
 from app.database.db import Base
 from sqlalchemy import Column, Integer, Text, Boolean, String
-from sqlalchemy.orm import relationship, declarative_base
+from sqlalchemy.orm import relationship
+# models.py
+from sqlalchemy.ext.declarative import declarative_base
 # from app.models.order import Order  # Only for type hints
 
 
