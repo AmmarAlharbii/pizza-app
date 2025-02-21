@@ -38,5 +38,9 @@ def get_config():
     return Settings()
 
 
+@app.get('/', status_code=200)
+async def healthcheck():
+    return {"status": "Hello World!"}
+
 app.include_router(auth_routes.auth_router)
 app.include_router(order_routes.order_router)
